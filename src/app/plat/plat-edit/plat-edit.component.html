@@ -1,1 +1,60 @@
-<p>plat-edit works!</p>
+<h2>{{ plat.id === 0 ? 'Nouveau plat' : 'Modifier le plat' }}</h2>
+
+<form #formulaire="ngForm" (ngSubmit)="onSubmit(formulaire)">
+    <!-- Champ Nom -->
+    <div class="form-group">
+        <label for="nom">Nom</label>
+        <input 
+        ngModel 
+        required 
+        type="text" 
+        name="nom" 
+        id="nom" 
+        class="form-control" 
+        [(ngModel)]="plat.nom">
+    </div>
+
+    <!-- Champ MenuId -->
+    <div class="form-group">
+        <label for="menuId">Menu</label>
+        <select 
+            ngModel 
+            required 
+            name="menuId" 
+            id="menuId" 
+            class="form-control" 
+            [(ngModel)]="plat.menuId">
+            <option
+                *ngFor="let menu of menus|async"
+                [value]="menu.id">{{menu.nom}}
+            </option>
+        </select>
+    </div>
+
+    <!-- Champ Calories -->
+    <div class="form-group">
+        <label for="calories">Calories</label>
+        <input 
+        ngModel 
+        required
+        type="number" 
+        name="calories" 
+        id="calories" 
+        class="form-control" 
+        [(ngModel)]="plat.calories">
+    </div>
+
+    <!-- Boutons -->
+    <div class="d-flex btn-group mt-3">
+        <!-- Bouton de soumission -->
+        <button 
+        class="btn btn-success" 
+        type="submit" 
+        [disabled]="!formulaire.valid">
+        {{ plat.id === 0 ? 'Créer ce plat' : 'Modifier ce plat' }}
+        </button>
+
+        <!-- Bouton d'annulation -->
+        <a routerLink="/menus" class="btn btn-warning">Annuler</a>
+    </div>
+</form>

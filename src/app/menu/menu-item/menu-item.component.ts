@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { EtatMenu, Menu } from '../../models/menu';
+import { Menu, StatutMenu } from '../../models/menu';
 
 @Component({
   selector: 'app-menu-item',
@@ -9,5 +9,5 @@ import { EtatMenu, Menu } from '../../models/menu';
 export class MenuItemComponent {
   @Input()
   public menu: Menu = new Menu();
-  readonly etatMenu = EtatMenu;
+  readonly statutMenu = StatutMenu;
 }

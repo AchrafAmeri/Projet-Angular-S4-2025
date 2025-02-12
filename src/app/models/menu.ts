@@ -1,6 +1,6 @@
-export enum EtatMenu {
+export enum StatutMenu {
   ACTIF = 'actif',
-  INACTIF = 'incactif'
+  INACTIF = 'inactif'
 }
 
 export class Menu {
@@ -10,7 +10,7 @@ export class Menu {
     public nom: string = '',
     public description: string = '',
     public date_creation: string = '',
-    public etat: EtatMenu = EtatMenu.ACTIF
+    public statut: StatutMenu = StatutMenu.ACTIF
   ) {}
 
 }
