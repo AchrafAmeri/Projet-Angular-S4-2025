@@ -9,11 +9,10 @@ components:
 		menu-list
 		menu-item
 		menu-edit
-		menu-detail:
-			plat:
-				plat-list
-				plat-item
-				plat-edit
+	plat:
+		plat-list
+		plat-item
+		plat-edit
 
 services:
 ( ng generate service services/<class> )
@@ -22,10 +21,13 @@ services:
 
 routes:
 ( path: 'taches', component: TacheListComponent )
-	'menus' : MenuListComponent
-	'menu/new' : MenuEditComponent
+	'menus' 	: MenuListComponent
+	'menu/new' 	: MenuEditComponent
 	'menu/edit/:id' : MenuEditComponent
-	'menu/:id' : MenuDetailComponent
+
+	'menu/:id/plats': PlatListComponent
+	'plat/new' 	: PlatEditComponent
+	'plat/edit/:id' : PlatEditComponent
 
 liens:
 ( <a class="btn" routerLink="/tache/({tache.id)}"> lien </a> )
