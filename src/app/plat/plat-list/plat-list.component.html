@@ -1,1 +1,10 @@
-<p>plat-list works!</p>
+<h2> <b>{{ (plats|async)?.length}} </b> plats enregistrés</h2>
+<a routerLink="/plat/new" class="btn btn-info">Nouveau Plat</a>
+<ul class="list-group">
+
+  <app-plat-item
+      *ngFor="let plat of plats|async"
+      [plat]="plat">
+  </app-plat-item>
+
+</ul>

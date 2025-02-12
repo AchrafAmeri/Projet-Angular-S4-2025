@@ -30,4 +30,4 @@ routes:
 	'plat/edit/:id' : PlatEditComponent
 
 liens:
-( <a class="btn" routerLink="/tache/({tache.id)}"> lien </a> )
+( <a class="btn" routerLink="/tache/({tache.id)})"> lien </a> )

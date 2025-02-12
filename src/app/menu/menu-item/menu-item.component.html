@@ -1,1 +1,12 @@
-<p>menu-item works!</p>
+<li class="list-group-item"
+    [ngClass]="{'bg-success'    : menu.etat==etatMenu.ACTIF,
+                'bg-warning'    : menu.etat==etatMenu.INACTIF}">
+
+  <div class="d-flex justify-content-between">
+    <p>{{menu.nom}}</p>
+    <div class="d-flex justify-content-end">
+      <a class="btn" routerLink="/menu/edit/{{menu.id}}"> <i class="fa-solid fa-edit"></i> </a>
+      <a class="btn" routerLink="/menu/{{menu.id}}/plats"> <i class="fa-solid fa-circle-info"></i> </a>
+    </div>
+  </div>
+</li>

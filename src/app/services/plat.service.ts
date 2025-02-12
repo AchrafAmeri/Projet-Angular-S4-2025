@@ -12,8 +12,8 @@ export class PlatService {
 
   constructor(private http: HttpClient) {}
 
-  getPlats(): Observable<Plat[]> {
-    return this.http.get<Plat[]>(this.platAPI);
+  getPlats(id: number): Observable<Plat[]> {
+    return this.http.get<Plat[]>(environment.apiUrl + '/menus' + '/' + id + '/plats');
   }
 
   getPlat(id: number): Observable<Plat> {

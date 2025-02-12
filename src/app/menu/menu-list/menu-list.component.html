@@ -1,1 +1,10 @@
-<p>menu-list works!</p>
+<h2> <b>{{ (menus|async)?.length}} </b> menus enregistrés</h2>
+<a routerLink="/menu/new" class="btn btn-info">Nouveau Menu</a>
+<ul class="list-group">
+
+  <app-menu-item
+      *ngFor="let menu of menus|async"
+      [menu]="menu">
+  </app-menu-item>
+
+</ul>

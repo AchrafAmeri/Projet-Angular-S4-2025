@@ -9,6 +9,8 @@ import { MenuEditComponent } from './menu/menu-edit/menu-edit.component';
 import { PlatListComponent } from './plat/plat-list/plat-list.component';
 import { PlatItemComponent } from './plat/plat-item/plat-item.component';
 import { PlatEditComponent } from './plat/plat-edit/plat-edit.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { PlatEditComponent } from './plat/plat-edit/plat-edit.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
