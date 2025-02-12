@@ -1,0 +1,31 @@
+classes:
+( ng generate class models/<class> )
+	menu
+	plat
+
+components:
+( ng generate component <class>/<class>-<component> )
+	menu:
+		menu-list
+		menu-item
+		menu-edit
+		menu-detail:
+			plat:
+				plat-list
+				plat-item
+				plat-edit
+
+services:
+( ng generate service services/<class> )
+	menu
+	plat
+
+routes:
+( path: 'taches', component: TacheListComponent )
+	'menus' : MenuListComponent
+	'menu/new' : MenuEditComponent
+	'menu/edit/:id' : MenuEditComponent
+	'menu/:id' : MenuDetailComponent
+
+liens:
+( <a class="btn" routerLink="/tache/({tache.id)}"> lien </a> )
