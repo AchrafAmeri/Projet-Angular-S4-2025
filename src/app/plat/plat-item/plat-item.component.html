@@ -1,10 +1,14 @@
-<li class="list-group-item">
-
-  <div class="d-flex justify-content-between">
-    <p>{{plat.nom}}</p>
-    <p>{{plat.calories}}</p>
-    <div class="d-flex justify-content-end">
+<li class="list-group-item menu-items">
+  <div class="d-flex" style="align-items: center;">
+    <div class="flex-item">
+      <p>{{plat.nom}}</p>
+    </div>
+    <div class="flex-item text-center">
+      <p>{{plat.calories}}</p>
+    </div>
+    <div class="flex-item text-end">
       <a class="btn" routerLink="/plat/edit/{{plat.id}}"> <i class="fa-solid fa-edit"></i> </a>
+      <a class="btn" (click)="onDelete()"> <i class="fa-solid fa-trash"></i> </a>
     </div>
   </div>
 </li>

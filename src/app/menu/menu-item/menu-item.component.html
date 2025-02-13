@@ -1,12 +1,13 @@
-<li class="list-group-item"
-    [ngClass]="{'bg-success'    : menu.statut==statutMenu.ACTIF,
-                'bg-warning'    : menu.statut==statutMenu.INACTIF}">
+<li class="list-group-item menu-items"
+    [ngClass]="{'bg-actif'    : menu.statut==statutMenu.ACTIF,
+                'bg-inactif'    : menu.statut==statutMenu.INACTIF}">
 
-  <div class="d-flex justify-content-between">
+  <div class="d-flex justify-content-between" style="align-items: center;">
     <p>{{menu.nom}}</p>
     <div class="d-flex justify-content-end">
       <a class="btn" routerLink="/menu/edit/{{menu.id}}"> <i class="fa-solid fa-edit"></i> </a>
-      <a class="btn" routerLink="/menu/{{menu.id}}/plats"> <i class="fa-solid fa-circle-info"></i> </a>
+      <a class="btn" routerLink="/menu/{{menu.id}}/plats"> <i class="fa-solid fa-info"></i> </a>
+      <a class="btn" (click)="onDelete()"> <i class="fa-solid fa-trash"></i> </a>
     </div>
   </div>
 </li>
