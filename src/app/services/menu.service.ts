@@ -28,7 +28,18 @@ export class MenuService {
     return this.http.put<Menu>(this.menuAPI + '/' + menu.id, menu);
   }
 
-  deleteMenu(menu:Menu): Observable<Menu> {
+  deleteMenu(menu: Menu): Observable<Menu> {
+    const deletePlatsUrl = this.menuAPI + '/' + menu.id +'/plats';
+    this.http.delete(deletePlatsUrl).subscribe({
+      next: () => {
+        console.log(`Plats associés au menu ${menu.id} supprimés.`);
+      },
+      error: (err) => {
+        console.log('Erreur lors de la suppression des plats :', err);
+      }
+    });
+
+    // 2. Supprimer le menu
     return this.http.delete<Menu>(this.menuAPI + '/' + menu.id);
   }
 }
