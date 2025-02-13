@@ -18,18 +18,23 @@ export class PlatItemComponent {
   ) {}
 
   public onDelete(): void {
-    let ObservableAction
-    ObservableAction = this.platService.deletePlat(this.plat)
-    ObservableAction.subscribe({
-      next: menu => {
-        console.log("Suppression OK : ", menu)
-        this.router.navigateByUrl("/").then(
-          ()=>this.router.navigateByUrl("/menus") 
-          )
-      },
-      error: err => {
-        console.log("ERREUR DELETE ", err)
-      }
-    })
+    // Afficher la boîte de confirmation
+    const confirmation = window.confirm(`Êtes-vous sûr de vouloir supprimer le plat : ${this.plat.nom} ?`);
+    // Si l'utilisateur confirme, procéder à la suppression
+    if (confirmation) {
+      let ObservableAction
+      ObservableAction = this.platService.deletePlat(this.plat)
+      ObservableAction.subscribe({
+        next: menu => {
+          console.log("Suppression OK : ", menu)
+          this.router.navigateByUrl("/").then(
+            ()=>this.router.navigateByUrl("/menus") 
+            )
+        },
+        error: err => {
+          console.log("ERREUR DELETE ", err)
+        }
+      })
+    }
   }
 }

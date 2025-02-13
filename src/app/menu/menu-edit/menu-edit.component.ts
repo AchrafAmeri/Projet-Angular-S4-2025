@@ -20,11 +20,13 @@ export class MenuEditComponent {
   ) {}
 
   public onSubmit(leFormulaire: NgForm): void {
+    const currentDate = new Date();
     if (leFormulaire.valid) {
       let ObservableAction
       if (this.menu.id) {
         ObservableAction = this.menuService.updateMenu(this.menu)
       } else {
+        this.menu.date_creation = currentDate.toISOString().split('T')[0];
         ObservableAction = this.menuService.addMenu(this.menu)
       }
       ObservableAction.subscribe({

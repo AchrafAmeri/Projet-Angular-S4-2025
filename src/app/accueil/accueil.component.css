@@ -1,0 +1,68 @@
+/* Général */
+body {
+  background-color: #1e1e2f;
+  color: #e0e0eb;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Style du titre */
+.text-glow {
+  color: #0ff;
+  text-shadow: 0 0 8px #0ff, 0 0 12px #0ff, 0 0 24px #0ff;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #ff79c6;
+  text-shadow: 0 0 6px #ff79c6;
+}
+
+/* Glow de l'image */
+.glow-image {
+  display: block;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.6), 0 0 60px rgba(0, 255, 255, 0.4);
+  transition: box-shadow 0.3s ease;
+}
+
+.glow-image:hover {
+  box-shadow: 0 0 25px rgba(0, 255, 255, 1), 0 0 50px rgba(0, 255, 255, 0.8), 0 0 75px rgba(0, 255, 255, 0.6);
+}
+
+/* Style des cartes */
+.card {
+  border: 2px solid #0ff;
+  box-shadow: 0 0 12px #0ff;
+}
+
+.card-title {
+  color: #ff79c6;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #e0e0eb;
+}
+
+/* Boutons */
+.btn-primary {
+  background-color: #0ff;
+  border: none;
+  color: #1e1e2f;
+  font-weight: bold;
+  text-shadow: 0 0 4px #1e1e2f;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #ff79c6;
+  color: #1e1e2f;
+}
+
+/* Accueil */
+.accueil-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

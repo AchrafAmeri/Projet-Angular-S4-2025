@@ -1,6 +1,29 @@
-<h2> <b>{{ (plats|async)?.length}} </b> plats enregistrés</h2>
+
+<div *ngIf="menu | async as menu" class="d-flex flex-column align-items-center mt-5">
+  <h2>{{ menu.nom }}</h2>
+  <p>{{ menu.description }}</p>
+  <p><strong>Statut : </strong>{{ menu.statut }}</p>
+  <p><strong>Date de création : </strong>{{ menu.date_creation }}</p>
+</div>
+
+<h3> <b>{{ (plats|async)?.length}} </b> plats enregistrés</h3>
+
 <a routerLink="/plat/new" class="btn btn-info btn-nouveau mt-3 mb-3">Nouveau Plat</a>
 <ul class="list-group">
+
+  <li class="list-group-item menu-items">
+    <div class="d-flex index-items" style="align-items: center;">
+      <div class="flex-item">
+        <span>Nom</span>
+      </div>
+      <div class="flex-item text-center">
+        <span>Calories</span>
+      </div>
+      <div class="flex-item text-end">
+        <span>Boutons</span>
+      </div>
+    </div>
+  </li>
 
   <app-plat-item
       *ngFor="let plat of plats|async"

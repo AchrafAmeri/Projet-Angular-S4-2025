@@ -2,6 +2,8 @@
     margin-top: 40px;
     cursor: pointer;
     font-size: 4rem;
+    color: #0ff;
+    text-shadow: 0 0 8px #0ff, 0 0 12px #0ff, 0 0 24px #0ff;
 }
 
 .header{

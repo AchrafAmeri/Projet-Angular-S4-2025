@@ -1,0 +1,41 @@
+/* Style de base pour l'élément de menu */
+.menu-items {
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+  
+/* Style pour la section contenant le texte du menu */
+.menu-items p {
+    margin: 0;
+    font-weight: bold;
+    font-size: 16px;
+    color: rgb(50, 251, 226);
+}
+  
+/* Alignement des boutons à droite */
+.menu-items .d-flex.justify-content-end {
+    display: flex;
+    gap: 10px;
+}
+  
+.flex-item {
+    flex: 1;  /* Chaque élément prend une part égale de l'espace disponible */
+}
+  
+.text-center {
+    text-align: center;
+}
+  
+.text-end {
+    text-align: end; /* Aligne les boutons à droite */
+}
+
+.index-items{
+    font-size: 1.2rem;
+    color: #ff79c6;
+    text-shadow: 0 0 6px #ff79c6;
+}
