@@ -31,4 +31,8 @@ export class PlatService {
   deletePlat(plat: Plat): Observable<Plat> {
     return this.http.delete<Plat>(this.platAPI + '/' + plat.id);
   }
+
+  getTypesPlats(): Observable<Plat[]> {
+    return this.http.get<Plat[]>(environment.apiUrl + '/types_plats');
+  }
 }

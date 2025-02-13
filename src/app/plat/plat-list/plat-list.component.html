@@ -4,6 +4,7 @@
   <p>{{ menu.description }}</p>
   <p><strong>Statut : </strong>{{ menu.statut }}</p>
   <p><strong>Date de création : </strong>{{ menu.date_creation }}</p>
+  <p><strong>Totale calories : </strong>{{ totalCalories|async }}</p>
 </div>
 
 <h3> <b>{{ (plats|async)?.length}} </b> plats enregistrés</h3>

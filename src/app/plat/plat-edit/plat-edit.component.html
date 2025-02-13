@@ -11,7 +11,12 @@
         name="nom" 
         id="nom" 
         class="form-control" 
-        [(ngModel)]="plat.nom">
+        [(ngModel)]="plat.nom"
+        list="nomOptions">
+
+        <datalist id="nomOptions">
+            <option *ngFor="let type of (typesPlats | async)" [value]="type.nom">{{ type.nom }}</option>
+        </datalist>
     </div>
 
     <!-- Champ MenuId -->

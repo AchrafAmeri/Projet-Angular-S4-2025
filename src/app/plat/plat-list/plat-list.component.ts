@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Plat } from '../../models/plat';
 import { PlatService } from '../../services/plat.service';
 import { ActivatedRoute } from '@angular/router';
@@ -14,6 +14,7 @@ import { MenuService } from '../../services/menu.service';
 export class PlatListComponent {
   public plats!: Observable<Plat[]>;
   public menu!: Observable<Menu>;
+  public totalCalories!: Observable<number>;
 
   constructor(
     private platService: PlatService,
@@ -25,5 +26,9 @@ export class PlatListComponent {
     const id = this.route.snapshot.params['id']
     this.plats = this.platService.getPlats(id)
     this.menu = this.menuService.getMenu(id)
+
+    this.totalCalories = this.plats.pipe(
+      map((plats) => plats.reduce((total, plat) => total + plat.calories, 0))
+    );
   }
 }

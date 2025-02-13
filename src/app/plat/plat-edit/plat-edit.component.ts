@@ -15,6 +15,7 @@ import { MenuService } from '../../services/menu.service';
 export class PlatEditComponent {
   plat: Plat = new Plat()
   public menus!: Observable<Menu[]>
+  public typesPlats!: Observable<Plat[]>
 
   constructor(
     private platService: PlatService,
@@ -54,6 +55,6 @@ export class PlatEditComponent {
         error: err => this.router.navigateByUrl('/plats')
       })
     }
-    console.log(this.plat)
+    this.typesPlats = this.platService.getTypesPlats();
   }
 }
