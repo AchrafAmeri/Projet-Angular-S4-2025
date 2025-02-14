@@ -1,19 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Menu } from '../../models/menu';
 import { MenuService } from '../../services/menu.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-menu-list',
   templateUrl: './menu-list.component.html',
-  styleUrl: './menu-list.component.css',
+  styleUrls: ['./menu-list.component.css'],
 })
-export class MenuListComponent {
-  public menus!: Observable<Menu[]>
+export class MenuListComponent implements OnInit {
+  public menus: Menu[] = [];
+  public searchTerm: string = '';
 
   constructor(private menuService: MenuService) {}
 
-  ngOnInit() {
-    this.menus = this.menuService.getMenus()
+  ngOnInit(): void {
+    this.menuService.getMenus().subscribe(menus => {
+      this.menus = menus;
+    });
+  }
+
+  public filteredMenus(): Menu[] {
+    if (!this.searchTerm) {
+      return this.menus;
+    }
+    return this.menus.filter(menu => 
+      menu.nom.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
   }
 }

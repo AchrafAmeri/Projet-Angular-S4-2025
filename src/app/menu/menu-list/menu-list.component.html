@@ -1,10 +1,19 @@
-<h2> <b>{{ (menus|async)?.length}} </b> menus enregistrés</h2>
-<a routerLink="/menu/new" class="btn btn-info btn-nouveau mt-3 mb-3">Nouveau Menu</a>
+<h2> <b>{{ menus.length }}</b> menus enregistrés</h2>
+
+<div class="mb-2 mt-4">
+  <input 
+    type="text" 
+    class="form-control" 
+    [(ngModel)]="searchTerm" 
+    placeholder="Rechercher un menu..."
+  />
+</div>
+
+<a routerLink="/menu/new" class="btn btn-info btn-nouveau mt-3 mb-4">Nouveau Menu</a>
+
 <ul class="list-group">
-
   <app-menu-item
-      *ngFor="let menu of menus|async"
-      [menu]="menu">
+    *ngFor="let menu of filteredMenus()"
+    [menu]="menu">
   </app-menu-item>
-
 </ul>

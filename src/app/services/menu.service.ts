@@ -39,7 +39,6 @@ export class MenuService {
       }
     });
 
-    // 2. Supprimer le menu
     return this.http.delete<Menu>(this.menuAPI + '/' + menu.id);
   }
 }

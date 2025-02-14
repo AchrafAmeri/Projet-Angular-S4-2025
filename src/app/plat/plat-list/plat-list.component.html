@@ -1,17 +1,25 @@
-
-<div *ngIf="menu | async as menu" class="d-flex flex-column align-items-center mt-5">
+<div *ngIf="menu" class="d-flex flex-column align-items-center mt-5">
   <h2>{{ menu.nom }}</h2>
   <p>{{ menu.description }}</p>
   <p><strong>Statut : </strong>{{ menu.statut }}</p>
   <p><strong>Date de création : </strong>{{ menu.date_creation }}</p>
-  <p><strong>Totale calories : </strong>{{ totalCalories|async }}</p>
+  <p><strong>Total des calories : </strong>{{ totalCalories }}</p>
 </div>
 
-<h3> <b>{{ (plats|async)?.length}} </b> plats enregistrés</h3>
+<h3> <b>{{ plats.length }} </b> plats enregistrés</h3>
+
+<div class="mb-2 mt-4">
+  <input 
+    type="text" 
+    class="form-control" 
+    [(ngModel)]="searchTerm" 
+    placeholder="Rechercher un plat..."
+  />
+</div>
 
 <a routerLink="/plat/new" class="btn btn-info btn-nouveau mt-3 mb-3">Nouveau Plat</a>
-<ul class="list-group">
 
+<ul class="list-group">
   <li class="list-group-item menu-items">
     <div class="d-flex index-items" style="align-items: center;">
       <div class="flex-item">
@@ -27,8 +35,7 @@
   </li>
 
   <app-plat-item
-      *ngFor="let plat of plats|async"
-      [plat]="plat">
+    *ngFor="let plat of filteredPlats()"
+    [plat]="plat">
   </app-plat-item>
-
 </ul>

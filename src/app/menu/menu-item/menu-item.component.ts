@@ -19,9 +19,7 @@ export class MenuItemComponent {
   ) {}
 
   public onDelete(menu: any): void {
-    // Afficher la boîte de confirmation
     const confirmation = window.confirm(`Êtes-vous sûr de vouloir supprimer le menu : ${this.menu.nom} ?`);
-    // Si l'utilisateur confirme, procéder à la suppression
     if (confirmation) {
       let ObservableAction
       ObservableAction = this.menuService.deleteMenu(this.menu)
