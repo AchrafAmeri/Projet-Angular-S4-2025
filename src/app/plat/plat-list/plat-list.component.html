@@ -19,23 +19,8 @@
 
 <a routerLink="/plat/new" class="btn btn-info btn-nouveau mt-3 mb-3">Nouveau Plat</a>
 
-<ul class="list-group">
-  <li class="list-group-item menu-items">
-    <div class="d-flex index-items" style="align-items: center;">
-      <div class="flex-item">
-        <span>Nom</span>
-      </div>
-      <div class="flex-item text-center">
-        <span>Calories</span>
-      </div>
-      <div class="flex-item text-end">
-        <span>Boutons</span>
-      </div>
-    </div>
-  </li>
-
-  <app-plat-item
-    *ngFor="let plat of filteredPlats()"
-    [plat]="plat">
-  </app-plat-item>
-</ul>
+<div class="row">
+  <div class="col-md-3" *ngFor="let plat of filteredPlats()">
+    <app-plat-item [plat]="plat"></app-plat-item>
+  </div>
+</div>

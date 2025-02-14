@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Plat } from '../../models/plat';
 import { PlatService } from '../../services/plat.service';
 import { Router } from '@angular/router';
+import { ImageService } from '../../services/image.service';
 
 @Component({
   selector: 'app-plat-item',
@@ -12,10 +13,25 @@ export class PlatItemComponent {
   @Input()
   public plat: Plat = new Plat();
 
+  image: string = '';
+
   constructor(
     private platService: PlatService,
     private router: Router,
+    private imageService: ImageService
   ) {}
+
+  ngOnInit(): void {
+    this.imageService.getImage(this.plat.nom).subscribe(
+      (result: string) => { 
+        this.image = result;
+        console.log(this.image);
+      },
+      (error) => {
+        console.error('Erreur lors de la récupération de l\'image:', error);
+      }
+    );
+  }
 
   public onDelete(): void {
     // Afficher la boîte de confirmation
