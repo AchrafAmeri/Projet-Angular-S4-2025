@@ -6,20 +6,6 @@ import { ImageService } from '../services/image.service';
   templateUrl: './accueil.component.html',
   styleUrls: ['./accueil.component.css']
 })
-export class AccueilComponent implements OnInit {
-  image: string = '';
+export class AccueilComponent {
 
-  constructor(private imageService: ImageService) {}
-
-  ngOnInit(): void {
-    this.imageService.getImage('grilled salmon').subscribe(
-      (result: string) => { 
-        this.image = result;
-        console.log(this.image);
-      },
-      (error) => {
-        console.error('Erreur lors de la récupération de l\'image:', error);
-      }
-    );
-  }
 }
