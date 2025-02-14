@@ -57,6 +57,8 @@ export class MenuEditComponent {
           this.router.navigateByUrl('/menus');
         }
       });
+    }else{
+      this.isLoading = false;
     }
   }
 }
