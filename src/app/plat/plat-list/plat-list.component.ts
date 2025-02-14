@@ -16,6 +16,7 @@ export class PlatListComponent implements OnInit {
   public menu!: Menu;         // Pour le menu
   public searchTerm: string = '';  // Pour la recherche de plats
   public totalCalories!: number;  // Total des calories du menu
+  public isLoading: boolean = true; // L'écran de chargement est activé au démarrage
 
   constructor(
     private platService: PlatService,
@@ -24,6 +25,7 @@ export class PlatListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
     const id = this.route.snapshot.params['id'];
     
     this.menuService.getMenu(id).subscribe(menu => {
@@ -34,6 +36,8 @@ export class PlatListComponent implements OnInit {
       this.plats = plats;
       
       this.totalCalories = plats.reduce((total, plat) => total + plat.calories, 0);
+      
+      this.isLoading = false;
     });
   }
 

@@ -1,60 +1,67 @@
-<h2>{{ menu.id === 0 ? 'Nouveau menu' : 'Modifier le menu' }}</h2>
+<div *ngIf="isLoading" class="loading-screen">
+    <div class="spinner"></div>
+</div>
+  
+<div *ngIf="!isLoading">
+    
+    <h2>{{ menu.id === 0 ? 'Nouveau menu' : 'Modifier le menu' }}</h2>
 
-<form #formulaire="ngForm" (ngSubmit)="onSubmit(formulaire)">
-    <!-- Champ Nom -->
-    <div class="form-group">
-        <label for="nom">Nom</label>
-        <input 
-        ngModel 
-        required 
-        type="text" 
-        name="nom" 
-        id="nom" 
-        class="form-control" 
-        [(ngModel)]="menu.nom">
-    </div>
-
-    <!-- Champ Description -->
-    <div class="form-group">
-        <label for="description">Description</label>
-        <input 
-        ngModel 
-        required
-        type="text" 
-        name="description" 
-        id="description" 
-        class="form-control" 
-        [(ngModel)]="menu.description">
-    </div>
-
-    <!-- Champ Statut -->
-    <div class="form-group">
-        <label for="statut">Statut</label>
-        <select 
+    <form #formulaire="ngForm" (ngSubmit)="onSubmit(formulaire)">
+        <!-- Champ Nom -->
+        <div class="form-group">
+            <label for="nom">Nom</label>
+            <input 
             ngModel 
             required 
-            name="statut" 
-            id="statut" 
+            type="text" 
+            name="nom" 
+            id="nom" 
             class="form-control" 
-            [(ngModel)]="menu.statut">
-            <option
-                *ngFor="let statut of statutMenu|keyvalue"
-                [value]="statut.value">{{statut.value}}
-            </option>
-        </select>
-    </div>
+            [(ngModel)]="menu.nom">
+        </div>
 
-    <!-- Boutons -->
-    <div class="d-flex btn-group mt-3">
-        <!-- Bouton de soumission -->
-        <button 
-        class="btn btn-success" 
-        type="submit" 
-        [disabled]="!formulaire.valid">
-        {{ menu.id === 0 ? 'Créer ce menu' : 'Modifier cette menu' }}
-        </button>
+        <!-- Champ Description -->
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input 
+            ngModel 
+            required
+            type="text" 
+            name="description" 
+            id="description" 
+            class="form-control" 
+            [(ngModel)]="menu.description">
+        </div>
 
-        <!-- Bouton d'annulation -->
-        <a routerLink="/menus" class="btn btn-warning">Annuler</a>
-    </div>
-</form>
+        <!-- Champ Statut -->
+        <div class="form-group">
+            <label for="statut">Statut</label>
+            <select 
+                ngModel 
+                required 
+                name="statut" 
+                id="statut" 
+                class="form-control" 
+                [(ngModel)]="menu.statut">
+                <option
+                    *ngFor="let statut of statutMenu|keyvalue"
+                    [value]="statut.value">{{statut.value}}
+                </option>
+            </select>
+        </div>
+
+        <!-- Boutons -->
+        <div class="d-flex btn-group mt-3">
+            <!-- Bouton de soumission -->
+            <button 
+            class="btn btn-success" 
+            type="submit" 
+            [disabled]="!formulaire.valid">
+            {{ menu.id === 0 ? 'Créer ce menu' : 'Modifier cette menu' }}
+            </button>
+
+            <!-- Bouton d'annulation -->
+            <a routerLink="/menus" class="btn btn-warning">Annuler</a>
+        </div>
+    </form>
+</div>
