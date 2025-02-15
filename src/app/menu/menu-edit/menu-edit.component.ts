@@ -12,6 +12,7 @@ import { NgForm } from '@angular/forms';
 export class MenuEditComponent {
   menu: Menu = new Menu()
   readonly statutMenu = StatutMenu
+  public isLoading: boolean = true;  
 
   constructor(
     private menuService: MenuService,
@@ -42,15 +43,22 @@ export class MenuEditComponent {
   }
 
   public ngOnInit(): void {
-    const idMenu = this.route.snapshot.params["id"]
-    this.menu = new Menu()
-
+    const idMenu = this.route.snapshot.params["id"];
+    
     if (idMenu) {
       this.menuService.getMenu(idMenu).subscribe({
-        next: menu => this.menu = {...menu},
-        error: err => this.router.navigateByUrl('/menus')
-      })
+        next: menu => {
+          this.menu = { ...menu };
+          console.log("Menu récupéré :", this.menu);
+          this.isLoading = false;
+        },
+        error: err => {
+          console.error("Erreur lors de la récupération du menu", err);
+          this.router.navigateByUrl('/menus');
+        }
+      });
+    }else{
+      this.isLoading = false;
     }
-    console.log(this.menu)
   }
 }

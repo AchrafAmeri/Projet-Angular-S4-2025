@@ -10,12 +10,14 @@ import { MenuService } from '../../services/menu.service';
 export class MenuListComponent implements OnInit {
   public menus: Menu[] = [];
   public searchTerm: string = '';
+  public isLoading: boolean = true;
 
   constructor(private menuService: MenuService) {}
 
   ngOnInit(): void {
     this.menuService.getMenus().subscribe(menus => {
       this.menus = menus;
+      this.isLoading = false;
     });
   }
 

@@ -16,6 +16,7 @@ export class PlatEditComponent {
   plat: Plat = new Plat()
   public menus!: Observable<Menu[]>
   public typesPlats!: Observable<Plat[]>
+  public isLoading: boolean = true;
 
   constructor(
     private platService: PlatService,
@@ -45,16 +46,34 @@ export class PlatEditComponent {
   }
 
   public ngOnInit(): void {
-    this.menus = this.menuService.getMenus()
-    const idPlat = this.route.snapshot.params["id"]
-    this.plat = new Plat()
+    this.isLoading = true;
+    this.menus = this.menuService.getMenus();
+    const idPlat = this.route.snapshot.params["id"];
+    this.plat = new Plat();
 
     if (idPlat) {
       this.platService.getPlat(idPlat).subscribe({
-        next: plat => this.plat = {...plat},
-        error: err => this.router.navigateByUrl('/plats')
-      })
+        next: plat => {
+          this.plat = { ...plat };
+        },
+        error: err => {
+          console.log("Erreur lors de la récupération du plat", err);
+          this.router.navigateByUrl('/plats'); 
+        },
+        complete: () => {
+          this.isLoading = false;
+        }
+      });
     }
+
     this.typesPlats = this.platService.getTypesPlats();
+    this.typesPlats.subscribe({
+      next: (types) => {
+        console.log("Types de plats récupérés :", types);
+      },
+      complete: () => {
+        this.isLoading = false;
+      }
+    });
   }
 }
