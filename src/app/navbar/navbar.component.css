@@ -1,18 +1,18 @@
 /* Styles généraux pour la navbar */
 .navbar {
-    background-color: #1A0933 !important; /* Bleu sombre */
-    padding: 1rem 2rem; /* Espacement autour de la navbar */
+    background-color: #1A0933 !important;
+    padding: 1rem 2rem;
   }
   
   .navbar-toggler-icon {
-    background-color: #ffffff; /* Couleur du bouton burger */
+    background-color: #ffffff;
   }
   
   /* Style pour le menu de navigation */
   .navbar-nav {
     display: flex;
-    justify-content: center; /* Centrer les éléments */
-    width: 100%; /* Occupe toute la largeur disponible */
+    justify-content: center;
+    width: 100%;
   }
   
   .nav-item {
@@ -20,12 +20,12 @@
   }
   
   .nav-link {
-    font-size: 1.2rem; /* Taille du texte des liens */
-    font-weight: bold; /* Met en gras */
-    text-transform: uppercase; /* Texte en majuscules */
-    padding: 8px 15px; /* Espacement interne des liens */
-    border-radius: 5px; /* Coins arrondis pour les liens */
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Ajout de la transition sur le zoom */
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
     color: #0ff;
     text-shadow: 0 0 8px #0ff, 0 0 12px #0ff, 0 0 24px #0ff;
   }
@@ -33,18 +33,18 @@
   /* Effet de survol avec zoom */
   .nav-link:hover,
   .nav-link:focus {
-    transform: scale(1.1); /* Zoom de 10% */
+    transform: scale(1.1);
   }
   
   /* Styles pour la navbar sur petits écrans */
   @media (max-width: 767px) {
     .navbar-nav {
-      flex-direction: column; /* Les éléments de la navbar se mettent en colonne sur petit écran */
-      align-items: center; /* Centrer les éléments sur mobile */
+      flex-direction: column;
+      align-items: center;
     }
     
     .nav-item {
-      margin: 10px 0; /* Espacement vertical entre les items sur petit écran */
+      margin: 10px 0;
     }
   }
   

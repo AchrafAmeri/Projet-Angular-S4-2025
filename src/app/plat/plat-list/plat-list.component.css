@@ -6,15 +6,15 @@
   }
   
   .col-md-3 {
-    flex: 1 1 22%; /* 4 cartes par ligne */
-    max-width: 22%; /* Assure que chaque carte prend environ 1/4 de la largeur */
+    flex: 1 1 22%;
+    max-width: 22%;
     margin-bottom: 20px;
   }
   
   /* Responsivité : 2 cartes par ligne sur les petits écrans */
   @media (max-width: 768px) {
     .col-md-3 {
-      flex: 1 1 45%; /* 2 cartes par ligne */
+      flex: 1 1 45%;
       max-width: 45%;
     }
   }
@@ -22,7 +22,7 @@
   /* Responsivité : 1 carte par ligne sur les très petits écrans */
   @media (max-width: 576px) {
     .col-md-3 {
-      flex: 1 1 100%; /* 1 carte par ligne */
+      flex: 1 1 100%;
       max-width: 100%;
     }
   }
@@ -57,7 +57,7 @@
   
   /* Effet au survol des icônes */
   .menu-items .btn:hover {
-    color: #0056b3; /* Change la couleur de l'icône lorsqu'on survole */
+    color: #0056b3;
   }
   
   /* Styles de l'écran de chargement */
@@ -67,11 +67,11 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999; /* S'assure que l'écran de chargement est au-dessus des autres éléments */
+    z-index: 9999;
   }
   
   /* Animation du spinner */

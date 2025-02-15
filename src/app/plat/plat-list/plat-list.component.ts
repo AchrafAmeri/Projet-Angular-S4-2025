@@ -12,11 +12,11 @@ import { MenuService } from '../../services/menu.service';
   styleUrl: './plat-list.component.css',
 })
 export class PlatListComponent implements OnInit {
-  public plats: Plat[] = [];  // Changer l'observable en un tableau classique
-  public menu!: Menu;         // Pour le menu
-  public searchTerm: string = '';  // Pour la recherche de plats
-  public totalCalories!: number;  // Total des calories du menu
-  public isLoading: boolean = true; // L'écran de chargement est activé au démarrage
+  public plats: Plat[] = [];
+  public menu!: Menu;
+  public searchTerm: string = '';
+  public totalCalories!: number;
+  public isLoading: boolean = true;
 
   constructor(
     private platService: PlatService,

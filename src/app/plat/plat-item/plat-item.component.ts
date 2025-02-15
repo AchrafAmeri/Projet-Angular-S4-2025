@@ -34,9 +34,7 @@ export class PlatItemComponent {
   }
 
   public onDelete(): void {
-    // Afficher la boîte de confirmation
     const confirmation = window.confirm(`Êtes-vous sûr de vouloir supprimer le plat : ${this.plat.nom} ?`);
-    // Si l'utilisateur confirme, procéder à la suppression
     if (confirmation) {
       let ObservableAction
       ObservableAction = this.platService.deletePlat(this.plat)

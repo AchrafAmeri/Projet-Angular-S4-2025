@@ -3,21 +3,21 @@
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère autour de la carte */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
   /* Effet au survol de la carte */
   .menu-items:hover {
-    transform: scale(1.05); /* Agrandir légèrement la carte au survol */
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Ombre plus marquée au survol */
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
   }
   
   /* Style de l'image dans la carte */
   .menu-items img.card-image {
-    width: 100%; /* L'image occupe toute la largeur de la carte */
-    height: 150px; /* Fixe la hauteur de l'image */
-    object-fit: cover; /* L'image remplit l'espace sans déformer ses proportions */
-    border-radius: 10px 10px 0 0; /* Arrondir les coins supérieurs de l'image */
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
   }
   
   /* Style du corps de la carte */
@@ -62,7 +62,7 @@
   
   /* Effet au survol des icônes */
   .menu-items .btn:hover {
-    color: #0056b3; /* Change la couleur de l'icône lorsqu'on survole */
+    color: #0056b3;
   }
   
   /* Icône de la poubelle (trash) */
